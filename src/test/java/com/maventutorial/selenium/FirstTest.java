@@ -1,6 +1,7 @@
 package com.maventutorial.selenium;
 
 import java.util.List;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
@@ -61,5 +63,57 @@ public class FirstTest {
 		FindingNemo.click();
 	}
 	
+	@Test
+	public void facebookCreate() {
+		WebDriver driver = new FirefoxDriver();
+		driver.get("https://www.facebook.com");
+		
+		WebElement field = driver.findElement(By.id("u_0_1"));
+		field.sendKeys("Popaye");
+		
+		field = driver.findElement(By.id("u_0_3"));
+		field.sendKeys("Sailor");
+		
+		field = driver.findElement(By.id("u_0_6"));
+		field.sendKeys("testing@yahoo.com");
+		
+		field = driver.findElement(By.id("u_0_9"));
+		field.sendKeys("testing@yahoo.com");
+		
+		field = driver.findElement(By.id("u_0_b"));
+		field.sendKeys("testPassword");
+		
+		field = driver.findElement(By.id("u_0_e"));
+		field.click();
+		
+		//Adding values to the dropdown lists
+		Select dropDownList = new Select(driver.findElement(By.id("month")));
+		dropDownList.selectByValue(Integer.toString(randInt(1,12)));
+		
+		dropDownList = new Select(driver.findElement(By.id("day")));
+		dropDownList.selectByValue(Integer.toString(randInt(1,31)));
+		
+		dropDownList = new Select(driver.findElement(By.id("year")));
+		dropDownList.selectByValue(Integer.toString(randInt(1915,2016)));
+		
+		
+	}
 	
+	
+	public static int randInt(int min, int max) {
+
+	    // NOTE: This will (intentionally) not run as written so that folks
+	    // copy-pasting have to think about how to initialize their
+	    // Random instance.  Initialization of the Random instance is outside
+	    // the main scope of the question, but some decent options are to have
+	    // a field that is initialized once and then re-used as needed or to
+	    // use ThreadLocalRandom (if using at least Java 1.7).
+	    Random rand = new Random();
+
+	    // nextInt is normally exclusive of the top value,
+	    // so add 1 to make it inclusive
+	    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+	    return randomNum;
+	}
 }

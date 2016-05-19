@@ -5,7 +5,7 @@
     <classes>
       <class name="com.maventutorial.selenium.FirstTest">
         <methods>
-          <include name="failedTest"/>
+          <include name="openAnLink"/>
         </methods>
       </class> <!-- com.maventutorial.selenium.FirstTest -->
     </classes>
