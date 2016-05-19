@@ -48,7 +48,7 @@
               <ul>
                 <li>
                   <a href="#" class="navigator-link " panel-name="test-xml-Suite">
-                    <span>D:\Alexandru.Epure\WorkspaceLuna\com.maventutorial.selenium\testng.xml</span>
+                    <span>D:\Alexandru.Epure\WorkspaceLuna\com.maventutorial.selenium\src\main\resources\1.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -90,7 +90,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -99,6 +99,11 @@
                       <a href="#" panel-name="suite-Suite" class="show-methods passed suite-Suite"> (show)</a> <!-- show-methods passed suite-Suite -->
                     </span>
                     <div class="method-list-content passed suite-Suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.maventutorial.selenium.FirstTest" hash-for-method="failedTest">failedTest</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="com.maventutorial.selenium.FirstTest" hash-for-method="openAnLink">openAnLink</a> <!-- method navigator-link -->
@@ -124,6 +129,13 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
+                  <a name="failedTest">
+                  </a> <!-- failedTest -->
+                  <span class="method-name">failedTest</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
                   <a name="openAnLink">
                   </a> <!-- openAnLink -->
                   <span class="method-name">openAnLink</span>
@@ -134,18 +146,18 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">D:\Alexandru.Epure\WorkspaceLuna\com.maventutorial.selenium\testng.xml</span>
+            <span class="header-content">D:\Alexandru.Epure\WorkspaceLuna\com.maventutorial.selenium\src\main\resources\1.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Suite&quot;&gt;
-  &lt;test name=&quot;Test&quot;&gt;
+  &lt;test name=&quot;Test1&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.maventutorial.selenium.FirstTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test --&gt;
+  &lt;/test&gt; &lt;!-- Test1 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -157,7 +169,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">Test1 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -183,16 +195,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'openAnLink')
+data.setCell(0, 1, 'failedTest')
 data.setCell(0, 2, 'com.maventutorial.selenium.FirstTest')
-data.setCell(0, 3, 6021);
+data.setCell(0, 3, 22671);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'openAnLink')
+data.setCell(1, 2, 'com.maventutorial.selenium.FirstTest')
+data.setCell(1, 3, 13530);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 6 seconds</span>
+              <span class="suite-total-time">Total running time: 36 seconds</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -220,8 +236,12 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">com.maventutorial.selenium.FirstTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">openAnLink</span>
+                <span class="method-name">failedTest</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">openAnLink</span>
+                <span class="method-start">22676 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

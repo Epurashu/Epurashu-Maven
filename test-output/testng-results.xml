@@ -1,17 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="6037" started-at="2016-05-18T12:14:16Z" finished-at="2016-05-18T12:14:22Z">
+  <suite name="Suite" duration-ms="36225" started-at="2016-05-19T08:43:42Z" finished-at="2016-05-19T08:44:18Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="6037" started-at="2016-05-18T12:14:16Z" finished-at="2016-05-18T12:14:22Z">
+    <test name="Test1" duration-ms="36225" started-at="2016-05-19T08:43:42Z" finished-at="2016-05-19T08:44:18Z">
       <class name="com.maventutorial.selenium.FirstTest">
-        <test-method status="PASS" signature="openAnLink()[pri:0, instance:com.maventutorial.selenium.FirstTest@402f32ff]" name="openAnLink" duration-ms="6021" started-at="2016-05-18T15:14:16Z" finished-at="2016-05-18T15:14:22Z">
+        <test-method status="PASS" signature="failedTest()[pri:0, instance:com.maventutorial.selenium.FirstTest@50c87b21]" name="failedTest" duration-ms="22671" started-at="2016-05-19T11:43:42Z" finished-at="2016-05-19T11:44:05Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- failedTest -->
+        <test-method status="PASS" signature="openAnLink()[pri:0, instance:com.maventutorial.selenium.FirstTest@50c87b21]" name="openAnLink" duration-ms="13530" started-at="2016-05-19T11:44:05Z" finished-at="2016-05-19T11:44:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- openAnLink -->
       </class> <!-- com.maventutorial.selenium.FirstTest -->
-    </test> <!-- Test -->
+    </test> <!-- Test1 -->
   </suite> <!-- Suite -->
 </testng-results>
