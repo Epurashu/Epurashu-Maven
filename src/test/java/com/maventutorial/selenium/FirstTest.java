@@ -8,15 +8,42 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+
 public class FirstTest {
 
+	WebDriver driver = new FirefoxDriver();
+
+	
 	@Test
-	public void openAnLink() throws InterruptedException{
+	public void FailedLogIn(){
+		HomePage pcGarage = PageFactory.initElements(driver, HomePage.class);
+		pcGarage.accessMyAccount();
+		pcGarage.enterCredentials("ggg@yahoo.com", "NotMyPAss");
+		pcGarage.pressLoginButton();
+		
+	}
+	
+	@Test
+	public void SuccessfulLogin(){
+		HomePage pcGarage = PageFactory.initElements(driver, HomePage.class);
+		pcGarage.accessMyAccount();
+		pcGarage.enterCredentials("alexeusebiu@yahoo.co.uk","felicia");
+		pcGarage.pressLoginButton();
+	}
+	
+
+
+	/*
+	
+	@Test
+	public void LoginSuccessufulTest() throws InterruptedException{
 		WebDriver driver = new FirefoxDriver();
 		//Open Yahoo Mail Page
 		driver.get("http:/login.yahoo.com");
@@ -116,4 +143,6 @@ public class FirstTest {
 
 	    return randomNum;
 	}
+	
+	*/
 }

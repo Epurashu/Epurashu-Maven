@@ -2,15 +2,15 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="8591" started-at="2016-05-19T12:25:24Z" finished-at="2016-05-19T12:25:32Z">
+  <suite name="Default suite" duration-ms="9022" started-at="2016-05-20T07:29:05Z" finished-at="2016-05-20T07:29:14Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="8591" started-at="2016-05-19T12:25:24Z" finished-at="2016-05-19T12:25:32Z">
+    <test name="Default test" duration-ms="9022" started-at="2016-05-20T07:29:05Z" finished-at="2016-05-20T07:29:14Z">
       <class name="com.maventutorial.selenium.FirstTest">
-        <test-method status="PASS" signature="facebookCreate()[pri:0, instance:com.maventutorial.selenium.FirstTest@215be6bb]" name="facebookCreate" duration-ms="8577" started-at="2016-05-19T15:25:24Z" finished-at="2016-05-19T15:25:32Z">
+        <test-method status="PASS" signature="SuccessfulLogin()[pri:0, instance:com.maventutorial.selenium.FirstTest@346d61be]" name="SuccessfulLogin" duration-ms="9005" started-at="2016-05-20T10:29:05Z" finished-at="2016-05-20T10:29:14Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- facebookCreate -->
+        </test-method> <!-- SuccessfulLogin -->
       </class> <!-- com.maventutorial.selenium.FirstTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
