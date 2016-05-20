@@ -77,6 +77,8 @@ public class HomePage {
 	public void accessDaSistemCategory(){
 		LoggedInPage pressTheSistemeButton = PageFactory.initElements(driver, LoggedInPage.class);
 		pressTheSistemeButton.accessSisteme();
+		pressTheSistemeButton.pressAButton();
+		
 	}
 
 }
