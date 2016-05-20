@@ -1,12 +1,15 @@
 package com.maventutorial.selenium;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 public class HomePage {
 	
@@ -29,6 +32,9 @@ public class HomePage {
 	@FindBy(how = How.XPATH, xpath = "//form[@id='login']//button")
 	private WebElement loginButton;
 	
+	@FindBy(how = How.XPATH, xpath = "*//p[@class='error-text']")
+	private WebElement loginError;
+	
 	public void enterLoginPage(){
 		contulMeu.click();
 	}
@@ -40,15 +46,37 @@ public class HomePage {
 	}
 	
 	public void pressLoginButton(){
-		loginButton.click();
+		Assert.assertTrue(isUserLoggedInSuccessfully(),"User failed to login");
 	}
 	
 	public void openPage(String pageLink){
 		driver.get(pageLink);
 	}
 	
+	public boolean isUserLoggedInSuccessfully(){
+		loginButton.click();
+		try{
+		if(new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(loginError)) != null)
+			return false;
+		}
+		catch(TimeoutException e){
+		return true;
+		}
+		
+		return false;
+	}
+	
 	public void accessMyAccount(){
 		contulMeu.click();
+	}
+	
+	
+	
+	
+	
+	public void accessDaSistemCategory(){
+		LoggedInPage pressTheSistemeButton = PageFactory.initElements(driver, LoggedInPage.class);
+		pressTheSistemeButton.accessSisteme();
 	}
 
 }

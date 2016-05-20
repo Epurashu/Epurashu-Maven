@@ -38,7 +38,15 @@ public class FirstTest {
 		pcGarage.pressLoginButton();
 	}
 	
-
+	@Test
+	public void doSomethingIrrelevant()
+	{
+		HomePage pcGarage = PageFactory.initElements(driver, HomePage.class);
+		pcGarage.accessMyAccount();
+		pcGarage.enterCredentials("alexeusebiu@yahoo.co.uk", "felicia");
+		pcGarage.pressLoginButton();
+		pcGarage.accessDaSistemCategory();
+	}
 
 	/*
 	
