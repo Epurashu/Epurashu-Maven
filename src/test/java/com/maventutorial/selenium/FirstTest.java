@@ -1,53 +1,45 @@
 package com.maventutorial.selenium;
 
-import java.util.List;
-import java.util.Random;
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class FirstTest {
-
-	WebDriver driver = new FirefoxDriver();
-
+public class FirstTest extends TestsSetUp {
 	
 	@Test
 	public void FailedLogIn(){
-		HomePage pcGarage = PageFactory.initElements(driver, HomePage.class);
-		pcGarage.accessMyAccount();
-		pcGarage.enterCredentials("ggg@yahoo.com", "NotMyPAss");
-		pcGarage.pressLoginButton();
 		
+		HomePage homePage = new HomePage(this.driver);
+		homePage.accessMyAccount();
+		LogInPage loginPage = new LogInPage(this.driver);
+		loginPage.enterCredentials("ggg@yahoo.com", "NotMyPAss");
+		loginPage.pressLoginButton();
+		Assert.assertFalse(loginPage.isUserLoggedInSuccessfully(),"User failed to login");
 	}
 	
 	@Test
 	public void SuccessfulLogin(){
-		HomePage pcGarage = PageFactory.initElements(driver, HomePage.class);
-		pcGarage.accessMyAccount();
-		pcGarage.enterCredentials("alexeusebiu@yahoo.co.uk","felicia");
-		pcGarage.pressLoginButton();
+		HomePage homePage = new HomePage(this.driver);
+		homePage.accessMyAccount();
+		LogInPage loginPage = new LogInPage(this.driver);
+		loginPage.enterCredentials("alexeusebiu@yahoo.co.uk", "felicia");
+		loginPage.pressLoginButton();
+		Assert.assertTrue(loginPage.isUserLoggedInSuccessfully(),"User logged successfully");
 	}
 	
 	@Test
 	public void doSomethingIrrelevant()
 	{
-		HomePage pcGarage = PageFactory.initElements(driver, HomePage.class);
-		pcGarage.accessMyAccount();
-		pcGarage.enterCredentials("alexeusebiu@yahoo.co.uk", "felicia");
-		pcGarage.pressLoginButton();
-		pcGarage.accessDaSistemCategory();
+		HomePage homePage = new HomePage(this.driver);
+		homePage.accessMyAccount();
+		LogInPage loginPage = new LogInPage(this.driver);
+		loginPage.enterCredentials("alexeusebiu@yahoo.co.uk", "felicia");
+		loginPage.pressLoginButton();
+		AccountPage accPage = new AccountPage(this.driver);
+		accPage.accessSisteme();
+		Assert.assertEquals("Server HP ProLiant ML310e Gen8 Tower 4U, Procesor Intel® Xeon® E3-1220 v3 3.1GHz Haswell, 4GB UDIMM DDR3, 2x 1TB LFF 3.5 inch, B120i/ZM - PC Garage", accPage.pressAButton());
 	}
-
+	
 	/*
 	
 	@Test

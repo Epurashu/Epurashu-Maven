@@ -5,7 +5,9 @@
     <classes>
       <class name="com.maventutorial.selenium.FirstTest">
         <methods>
+          <include name="setUp"/>
           <include name="doSomethingIrrelevant"/>
+          <include name="reset"/>
         </methods>
       </class> <!-- com.maventutorial.selenium.FirstTest -->
     </classes>
