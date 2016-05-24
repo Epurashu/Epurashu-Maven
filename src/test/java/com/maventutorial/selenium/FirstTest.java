@@ -1,10 +1,20 @@
 package com.maventutorial.selenium;
 
 import org.testng.Assert;
+
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
 public class FirstTest extends TestsSetUp {
+	
+	//public String HomePage = "http://pcgarage.ro";
+	
+	@BeforeMethod
+	public void setUp() {
+		driver.get(HomePage);
+	}
+	
 	
 	@Test
 	public void FailedLogIn(){
@@ -25,6 +35,7 @@ public class FirstTest extends TestsSetUp {
 		loginPage.enterCredentials("alexeusebiu@yahoo.co.uk", "felicia");
 		loginPage.pressLoginButton();
 		Assert.assertTrue(loginPage.isUserLoggedInSuccessfully(),"User logged successfully");
+		loginPage.logOut();
 	}
 	
 	@Test
@@ -37,7 +48,7 @@ public class FirstTest extends TestsSetUp {
 		loginPage.pressLoginButton();
 		AccountPage accPage = new AccountPage(this.driver);
 		accPage.accessSisteme();
-		Assert.assertEquals("Server HP ProLiant ML310e Gen8 Tower 4U, Procesor Intel® Xeon® E3-1220 v3 3.1GHz Haswell, 4GB UDIMM DDR3, 2x 1TB LFF 3.5 inch, B120i/ZM - PC Garage", accPage.pressAButton());
+		Assert.assertEquals("Server HP ProLiant ML10 v2, Procesor Intel® Xeon® E3-1220 v3 3.1GHz Haswell, 1x 8GB UDIMM DDR3 1600MHz, 1x 1TB SATA HDD, LFF 3.5 inch, B120i - PC Garage", accPage.pressAButton());
 	}
 	
 	/*

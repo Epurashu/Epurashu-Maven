@@ -1,29 +1,29 @@
 package com.maventutorial.selenium;
+import java.io.IOException;
+
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 
 
 public abstract class TestsSetUp {
 	
 	public WebDriver driver;
+	public String HomePage;
 	
-	@BeforeTest
-	public void setUp() throws Exception {
-		driver = new FirefoxDriver();
-		String HomePage = "http://pcgarage.ro";
-		driver.get(HomePage);
+	@BeforeClass
+	public void beforeClass() throws IOException
+	{
+		TestProperties setUp = new TestProperties();
+		setUp.getPropValues();
+		driver = setUp.driver;
+		HomePage =setUp.homepage;
 	}
 	
-	@AfterTest
-	public void reset() throws Exception {
+	@AfterSuite
+	public void closeTest()
+	{
 		driver.close();
-		/*
-		String Homepage = "http://pcgarage.ro";
-		driver = new FirefoxDriver();
-		driver.get(Homepage);
-		*/
 	}
 
 

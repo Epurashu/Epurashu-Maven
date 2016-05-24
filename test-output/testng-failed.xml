@@ -5,9 +5,11 @@
     <classes>
       <class name="com.maventutorial.selenium.FirstTest">
         <methods>
-          <include name="setUp"/>
+          <include name="closeTest"/>
+          <include name="beforeClass"/>
+          <include name="SuccessfulLogin"/>
           <include name="doSomethingIrrelevant"/>
-          <include name="reset"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- com.maventutorial.selenium.FirstTest -->
     </classes>

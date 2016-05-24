@@ -28,6 +28,12 @@ public class LogInPage {
 	@FindBy(how = How.XPATH, xpath = "*//h1")
 	private WebElement title;
 	
+	@FindBy(how = How.XPATH, xpath = "*//a[.='Log out']")
+	private WebElement logOutButton;
+	
+	@FindBy(how = How.XPATH, xpath = ".//h1/span")
+	private WebElement logOutMessage;
+	
 	public LogInPage (WebDriver driver){
 		this.driver = driver;
 		PageFactory.initElements(this.driver, this);
@@ -55,6 +61,13 @@ public class LogInPage {
 		}
 		
 		return false;
+	}
+	
+	
+	public void logOut(){
+		logOutButton.click();
+		
+		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(logOutMessage));
 	}
 	
 }
