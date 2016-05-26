@@ -1,27 +1,46 @@
 package com.maventutorial.selenium;
 
-import org.testng.Assert;
+import java.io.File;
+import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.testng.Assert;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.openqa.selenium.TakesScreenshot;
+
 
 
 public class FirstTest extends TestsSetUp {
 	
 	//public String HomePage = "http://pcgarage.ro";
+	int testCount = 0;
 	
 	@BeforeMethod
 	public void setUp() {
 		driver.get(HomePage);
 	}
 	
+	@AfterMethod
+	public void takeScreenShotWhenTestFails(ITestResult testResult) throws IOException {
+		testCount++;
+		if (testResult.getStatus() == ITestResult.FAILURE){
+			File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+			System.out.println(scrFile.getAbsolutePath());
+			FileUtils.copyFile(scrFile, new File("c:\\tmp\\failedTest"+Integer.toString(testCount)+".png"));
+		}
+	}
+	
 	
 	@Test
 	public void FailedLogIn(){
 		
-		HomePage homePage = new HomePage(this.driver);
+		HomePage homePage = new HomePage(driver);
 		homePage.accessMyAccount();
-		LogInPage loginPage = new LogInPage(this.driver);
+		LogInPage loginPage = new LogInPage(driver);
 		loginPage.enterCredentials("ggg@yahoo.com", "NotMyPAss");
 		loginPage.pressLoginButton();
 		Assert.assertFalse(loginPage.isUserLoggedInSuccessfully(),"User failed to login");
@@ -29,7 +48,7 @@ public class FirstTest extends TestsSetUp {
 	
 	@Test
 	public void SuccessfulLogin(){
-		HomePage homePage = new HomePage(this.driver);
+		HomePage homePage = new HomePage(driver);
 		homePage.accessMyAccount();
 		LogInPage loginPage = new LogInPage(this.driver);
 		loginPage.enterCredentials("alexeusebiu@yahoo.co.uk", "felicia");
@@ -48,7 +67,8 @@ public class FirstTest extends TestsSetUp {
 		loginPage.pressLoginButton();
 		AccountPage accPage = new AccountPage(this.driver);
 		accPage.accessSisteme();
-		Assert.assertEquals("Server HP ProLiant ML10 v2, Procesor Intel® Xeon® E3-1220 v3 3.1GHz Haswell, 1x 8GB UDIMM DDR3 1600MHz, 1x 1TB SATA HDD, LFF 3.5 inch, B120i - PC Garage", accPage.pressAButton());
+		Assert.assertEquals("Server HP ProLiant ML10 v2, Procesor Intel® Xeon® E3-1220 v3 3.1GHz Haswell, 1x 8GB UDIMM DDR3 1600MHz, 1x 1TB SATA HDD, LFF 3.5 inch, B120i - PC Garage", accPage.returnAProductTitleFromSisteme());
+		loginPage.logOut();
 	}
 	
 	/*

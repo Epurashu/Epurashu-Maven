@@ -2,40 +2,73 @@
 <testng-results skipped="0" failed="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="35889" started-at="2016-05-24T10:42:29Z" finished-at="2016-05-24T10:43:05Z">
+  <suite name="Default suite" duration-ms="47413" started-at="2016-05-26T11:11:16Z" finished-at="2016-05-26T11:12:04Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="35889" started-at="2016-05-24T10:42:29Z" finished-at="2016-05-24T10:43:05Z">
+    <test name="Default test" duration-ms="47413" started-at="2016-05-26T11:11:16Z" finished-at="2016-05-26T11:12:04Z">
       <class name="com.maventutorial.selenium.FirstTest">
-        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.maventutorial.selenium.FirstTest@6d78f375]" name="beforeClass" is-config="true" duration-ms="1686" started-at="2016-05-24T13:42:29Z" finished-at="2016-05-24T13:42:30Z">
+        <test-method status="PASS" signature="beforeClass()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="beforeClass" is-config="true" duration-ms="2514" started-at="2016-05-26T14:11:16Z" finished-at="2016-05-26T14:11:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.maventutorial.selenium.FirstTest@6d78f375]" name="setUp" is-config="true" duration-ms="2879" started-at="2016-05-24T13:42:30Z" finished-at="2016-05-24T13:42:33Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="setUp" is-config="true" duration-ms="4328" started-at="2016-05-26T14:11:19Z" finished-at="2016-05-26T14:11:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="FailedLogIn()[pri:0, instance:com.maventutorial.selenium.FirstTest@6d78f375]" name="FailedLogIn" duration-ms="2686" started-at="2016-05-24T13:42:33Z" finished-at="2016-05-24T13:42:36Z">
+        <test-method status="PASS" signature="FailedLogIn()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="FailedLogIn" duration-ms="5224" started-at="2016-05-26T14:11:23Z" finished-at="2016-05-26T14:11:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- FailedLogIn -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.maventutorial.selenium.FirstTest@6d78f375]" name="setUp" is-config="true" duration-ms="1955" started-at="2016-05-24T13:42:36Z" finished-at="2016-05-24T13:42:38Z">
+        <test-method status="PASS" signature="takeScreenShotWhenTestFails(org.testng.ITestResult)[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="takeScreenShotWhenTestFails" is-config="true" duration-ms="1" started-at="2016-05-26T14:11:29Z" finished-at="2016-05-26T14:11:29Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=FailedLogIn status=SUCCESS method=FirstTest.FailedLogIn()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenShotWhenTestFails -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="setUp" is-config="true" duration-ms="2331" started-at="2016-05-26T14:11:29Z" finished-at="2016-05-26T14:11:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="SuccessfulLogin()[pri:0, instance:com.maventutorial.selenium.FirstTest@6d78f375]" name="SuccessfulLogin" duration-ms="5998" started-at="2016-05-24T13:42:38Z" finished-at="2016-05-24T13:42:44Z">
+        <test-method status="PASS" signature="SuccessfulLogin()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="SuccessfulLogin" duration-ms="9815" started-at="2016-05-26T14:11:31Z" finished-at="2016-05-26T14:11:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SuccessfulLogin -->
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.maventutorial.selenium.FirstTest@6d78f375]" name="setUp" is-config="true" duration-ms="5818" started-at="2016-05-24T13:42:44Z" finished-at="2016-05-24T13:42:50Z">
+        <test-method status="PASS" signature="takeScreenShotWhenTestFails(org.testng.ITestResult)[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="takeScreenShotWhenTestFails" is-config="true" duration-ms="0" started-at="2016-05-26T14:11:41Z" finished-at="2016-05-26T14:11:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=SuccessfulLogin status=SUCCESS method=FirstTest.SuccessfulLogin()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenShotWhenTestFails -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="setUp" is-config="true" duration-ms="3317" started-at="2016-05-26T14:11:41Z" finished-at="2016-05-26T14:11:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="doSomethingIrrelevant()[pri:0, instance:com.maventutorial.selenium.FirstTest@6d78f375]" name="doSomethingIrrelevant" duration-ms="14829" started-at="2016-05-24T13:42:50Z" finished-at="2016-05-24T13:43:05Z">
+        <test-method status="PASS" signature="doSomethingIrrelevant()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="doSomethingIrrelevant" duration-ms="19869" started-at="2016-05-26T14:11:44Z" finished-at="2016-05-26T14:12:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doSomethingIrrelevant -->
-        <test-method status="PASS" signature="closeTest()[pri:0, instance:com.maventutorial.selenium.FirstTest@6d78f375]" name="closeTest" is-config="true" duration-ms="1334" started-at="2016-05-24T13:43:05Z" finished-at="2016-05-24T13:43:06Z">
+        <test-method status="PASS" signature="takeScreenShotWhenTestFails(org.testng.ITestResult)[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="takeScreenShotWhenTestFails" is-config="true" duration-ms="0" started-at="2016-05-26T14:12:04Z" finished-at="2016-05-26T14:12:04Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=doSomethingIrrelevant status=SUCCESS method=FirstTest.doSomethingIrrelevant()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- takeScreenShotWhenTestFails -->
+        <test-method status="PASS" signature="closeTest()[pri:0, instance:com.maventutorial.selenium.FirstTest@5f375618]" name="closeTest" is-config="true" duration-ms="208" started-at="2016-05-26T14:12:04Z" finished-at="2016-05-26T14:12:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeTest -->

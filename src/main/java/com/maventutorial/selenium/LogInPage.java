@@ -5,13 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class LogInPage {
+public class LogInPage extends AbstractPageConstructor {
 	
-	public WebDriver driver;
 	
 	@FindBy(how = How.XPATH, xpath = "//*[@id='email']")
 	private WebElement eMail;
@@ -35,11 +33,7 @@ public class LogInPage {
 	private WebElement logOutMessage;
 	
 	public LogInPage (WebDriver driver){
-		this.driver = driver;
-		PageFactory.initElements(this.driver, this);
-		
-		//Let`s wait for the page to load 
-		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(title));
+		super(driver);
 	}
 	
 	public void enterCredentials(String emailaddress,String passwd){
@@ -67,7 +61,7 @@ public class LogInPage {
 	public void logOut(){
 		logOutButton.click();
 		
-		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(logOutMessage));
+		waitForElement(logOutMessage);
 	}
 	
 }

@@ -6,13 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class AccountPage {
+public class AccountPage extends AbstractPageConstructor {
 
-	WebDriver driver;
+	//WebDriver driver;
 	
 	@FindBy(how = How.XPATH, xpath = "*//nav[@id='bottommenu']/ul/li[@data-link='sisteme']")
 	private WebElement sistemeButton;
@@ -29,32 +26,25 @@ public class AccountPage {
 	@FindBy(how = How.XPATH, xpath = ".//div[@class='pb-name']/a")
 	private List<WebElement> productList;
 	
-	@FindBy(how = How.XPATH, xpath = "*//h1")
-	private WebElement title;
-	
 	public AccountPage(WebDriver driver){
-		this.driver = driver;
-		PageFactory.initElements(this.driver, this);
-		
-		//Let`s wait for the page to load 
-		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(title));
+		super(driver);
 	}
 	
 	public void accessSisteme(){
 		sistemeButton.click();
 	}
 	
-	public String pressAButton(){
-		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(serversCategory));
+	public String returnAProductTitleFromSisteme(){
+		waitForElement(serversCategory);
 		serversCategory.click();
 		
-		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(hiddenButtons.get(2)));
+		waitForElement(hiddenButtons.get(2));
 		hiddenButtons.get(2).click();
 		
-		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(producerList.get(2)));
+		waitForElement(producerList.get(2));
 		producerList.get(2).click();
 		
-		new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(productList.get(4)));
+		waitForElement(productList.get(4));
 		productList.get(4).click();
 		
 		return driver.getTitle();

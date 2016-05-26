@@ -17,7 +17,7 @@ public abstract class TestsSetUp {
 		TestProperties setUp = new TestProperties();
 		setUp.getPropValues();
 		driver = setUp.driver;
-		HomePage =setUp.homepage;
+		HomePage =setUp.homePageLink;
 	}
 	
 	@AfterSuite
