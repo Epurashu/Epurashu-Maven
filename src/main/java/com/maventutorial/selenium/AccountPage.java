@@ -17,14 +17,14 @@ public class AccountPage extends AbstractPageConstructor {
 	@FindBy(how = How.XPATH, xpath = "*//ul[@class='filters']/li/a[.='Servere']")
 	private WebElement serversCategory;
 	
-	@FindBy(how = How.XPATH, xpath = "*//span[@class='visuallyhidden']")
-	private List<WebElement> hiddenButtons;
+	@FindBy(how = How.XPATH, xpath = "*//p[@id='ff_01']/span")
+	private WebElement producatorButton;
 	
-	@FindBy(how = How.XPATH, xpath= "*//div/ul[@id='fv_01']/li/a")
-	private List<WebElement> producerList;
+	@FindBy(how = How.XPATH, xpath= ".//*[@id='fv_01']/li[3]/a[@href='http://www.pcgarage.ro/servere/hp/']")
+	private WebElement producerList;
 	
-	@FindBy(how = How.XPATH, xpath = ".//div[@class='pb-name']/a")
-	private List<WebElement> productList;
+	@FindBy(how = How.XPATH, xpath = "*//div[@class='product-box']/div/div[@class='pb-name']/a[@title='HP ProLiant ML10 v2, Procesor Intel® Xeon® E3-1220 v3 3.1GHz Haswell, 1x 8GB UDIMM DDR3 1600MHz, 1x 1TB SATA HDD, LFF 3.5 inch, B120i']")
+	private WebElement hpServer;
 	
 	public AccountPage(WebDriver driver){
 		super(driver);
@@ -35,17 +35,17 @@ public class AccountPage extends AbstractPageConstructor {
 	}
 	
 	public String returnAProductTitleFromSisteme(){
-		waitForElement(serversCategory);
+		if(waitForElement(serversCategory))
 		serversCategory.click();
 		
-		waitForElement(hiddenButtons.get(2));
-		hiddenButtons.get(2).click();
+		if(waitForElement(producatorButton))
+		producatorButton.click();
 		
-		waitForElement(producerList.get(2));
-		producerList.get(2).click();
+		if(waitForElement(producerList))
+		producerList.click();
 		
-		waitForElement(productList.get(4));
-		productList.get(4).click();
+		if(waitForElement(hpServer))
+		hpServer.click();
 		
 		return driver.getTitle();
 		

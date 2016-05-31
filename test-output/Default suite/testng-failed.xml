@@ -5,12 +5,10 @@
     <classes>
       <class name="com.maventutorial.selenium.FirstTest">
         <methods>
-          <include name="FailedLogIn"/>
           <include name="closeTest"/>
           <include name="beforeClass"/>
           <include name="SuccessfulLogin"/>
           <include name="takeScreenShotWhenTestFails"/>
-          <include name="doSomethingIrrelevant"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.maventutorial.selenium.FirstTest -->

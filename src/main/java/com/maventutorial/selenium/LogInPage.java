@@ -46,15 +46,13 @@ public class LogInPage extends AbstractPageConstructor {
 	}
 	
 	public boolean isUserLoggedInSuccessfully(){
-		try{
-		if(new WebDriverWait(driver, 2).until(ExpectedConditions.elementToBeClickable(loginError)) != null)
+
+		if(waitForElement(loginError,2))
 			return false;
-		}
-		catch(TimeoutException e){
-		return true;
-		}
-		
-		return false;
+		else 
+			return true;
+			
+
 	}
 	
 	

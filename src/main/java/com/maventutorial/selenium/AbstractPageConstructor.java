@@ -1,5 +1,6 @@
 package com.maventutorial.selenium;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,11 +23,21 @@ public class AbstractPageConstructor {
 		waitForElement(title);
 	}
 	
-	public void waitForElement(WebElement element){
-		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(element));
+	public boolean waitForElement(WebElement element){
+		return waitForElement(element, 10);
+
 	}
 	
-	public void waitForElement(WebElement element, int waitTime){
+	public boolean waitForElement(WebElement element, int waitTime){
+		try{
 		new WebDriverWait(driver, waitTime).until(ExpectedConditions.elementToBeClickable(element));
+		return true;
+		}
+		catch (TimeoutException e){
+			String errorMessage = e.getMessage();
+			String errorParser[] = errorMessage.split("\n");
+			System.out.println("Elementul: "+errorParser[0].substring(errorParser[0].lastIndexOf("By."))+" nu a fost gasit pe pagia: "+driver.getCurrentUrl() );
+			return false;
+		}
 	}
 }

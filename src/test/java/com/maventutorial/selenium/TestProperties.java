@@ -50,18 +50,22 @@ public class TestProperties {
 				capabilities = new DesiredCapabilities(capabilitiesMap);
 			}
 			
-			if(usedWebDriver.toLowerCase().equals("firefox")){
+			usedWebDriver = usedWebDriver.toLowerCase();
+			
+			switch (usedWebDriver){
+			case "firefox":
 				driver = new FirefoxDriver(capabilities);
-
-			}
-			else	if(usedWebDriver.toLowerCase().equals("chrome")){
+				break;
+			case "chrome":
 				System.setProperty("webdriver.chrome.driver", prop.getProperty("chromePath"));
-					driver = new ChromeDriver(capabilities);
+				driver = new ChromeDriver(capabilities);
+				break;
+			case "iexplore":
+				System.setProperty("webdriver.ie.driver",prop.getProperty("iexplorePath"));
+				driver = new InternetExplorerDriver(capabilities);
+				break;
 			}
-					else if(usedWebDriver.toLowerCase().equals("iexplore")){
-						System.setProperty("webdriver.ie.driver",prop.getProperty("iexplorePath"));
-						driver = new InternetExplorerDriver(capabilities);
-					}
+			
 			driver.manage().window().maximize();
 			
 		} catch (Exception e) {
